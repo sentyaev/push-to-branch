@@ -13,4 +13,5 @@ jobs:
         run: |
           git --no-pager branch
           git --no-pager log --oneline
+          echo "${{ github.ref_name }}"
           echo "Done!"
