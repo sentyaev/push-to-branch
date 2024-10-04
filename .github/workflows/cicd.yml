@@ -8,6 +8,8 @@ jobs:
   push-to-branch:
     name: Push to Docs
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Force Push
@@ -16,5 +18,7 @@ jobs:
           git --no-pager log --oneline
           echo "${{ github.ref_name }}"
           echo "${{ github.sha }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git push --force origin ${{ github.sha }}:docs
           echo "Done!"
