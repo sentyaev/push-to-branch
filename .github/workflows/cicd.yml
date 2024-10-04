@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Push
+      - name: Force Push
         run: |
           git --no-pager branch
           git --no-pager log --oneline
           echo "${{ github.ref_name }}"
           echo "${{ github.sha }}"
+          git push --force origin ${{ github.sha }}:docs
           echo "Done!"
