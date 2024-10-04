@@ -1,0 +1,13 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  push-to-branch:
+    name: Push to Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push
+        run: |
+          echo "Done!"
